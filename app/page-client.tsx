@@ -1,5 +1,6 @@
 "use client"
 
+import About from "@/components/about";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import gsap from "gsap";
@@ -22,6 +23,9 @@ export const PageClient = () => {
       <main className="relative z-10">
         {/* Hero Section */}
         <Hero />
+
+        {/* About Section */}
+        <About />
       </main>
     </div>
   )

@@ -4,6 +4,7 @@ import About from "@/components/about";
 import CustomCursor from "@/components/custom-cursor";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
+import Skills from "@/components/skills";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useState } from "react";
@@ -30,6 +31,9 @@ export const PageClient = () => {
 
         {/* About Section */}
         <About />
+        
+        {/* Skills Section */}
+        <Skills />
       </main>
     </div>
   )

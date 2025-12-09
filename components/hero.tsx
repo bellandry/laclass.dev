@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import React, { useEffect, useRef } from 'react';
+import { RotatingScrollIndicator } from './rotating-scroll-indicator';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -67,11 +68,11 @@ const Hero: React.FC = () => {
 
         {/* Line 2 with Accent */}
         <div className="overflow-hidden flex items-center justify-center gap-4 md:gap-8">
-            <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-[100%] opacity-0 hidden md:block"></div>
+            <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-[100%] opacity-0"></div>
             <h1 className="hero-line transform translate-y-[100%] opacity-0 text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-white">
                 Bella
             </h1>
-            <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-[100%] opacity-0 hidden md:block"></div>
+            <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-[100%] opacity-0"></div>
         </div>
         
         <p className="hero-sub mt-12 text-slate-400 text-lg md:text-xl font-light tracking-[0.2em] uppercase max-w-xl mx-auto">
@@ -81,17 +82,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Rotating Scroll Indicator */}
-      <div className="scroll-indicator absolute bottom-12 right-8 md:right-12 z-20">
-         <div className="relative w-24 h-24 flex items-center justify-center">
-            <svg className="w-full h-full animate-[spin_10s_linear_infinite]" viewBox="0 0 100 100">
-                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                <text fill="white" fontSize="12" fontWeight="bold" letterSpacing="2">
-                    <textPath href="#circlePath" startOffset="0%">SCROLL • TO • EXPLORE •</textPath>
-                </text>
-            </svg>
-            <div className="absolute w-2 h-2 bg-cyan-400 rounded-full"></div>
-         </div>
-      </div>
+      <RotatingScrollIndicator />
     </section>
   );
 };

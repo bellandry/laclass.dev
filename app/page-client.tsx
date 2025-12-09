@@ -1,22 +1,28 @@
 "use client"
 
+import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useState } from "react";
+
+// Register plugin globally
+gsap.registerPlugin(ScrollTrigger);
 
 export const PageClient = () => {
   const [currentRoute, setCurrentRoute] = useState<string>('home');
-  
-  const navigateToHome = () => {
-    setCurrentRoute('home');
-  }
 
-  
   return (
     <div className="bg-slate-950 min-h-screen text-slate-50 selection:bg-cyan-500 selection:text-black">
+      {/* Navbar */}
       <Navbar
         currentRoute={currentRoute} 
-        onNavigateHome={navigateToHome}
       />
+
+      <main className="relative z-10">
+        {/* Hero Section */}
+        <Hero />
+      </main>
     </div>
   )
 }

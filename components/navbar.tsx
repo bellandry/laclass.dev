@@ -1,13 +1,13 @@
 import gsap from 'gsap';
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 interface NavbarProps {
   currentRoute?: string;
-  onNavigateHome?: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home', onNavigateHome }) => {
+const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -30,19 +30,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home', onNavigateHome }
     { name: "Contact", href: "#contact" }
   ];
 
-  const handleLogoClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (onNavigateHome) onNavigateHome();
-  };
-
   return (
     <nav className="fixed top-0 w-full z-50 px-6 py-8 mix-blend-difference text-white">
       <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto">
         
         {/* Logo */}
-        <a href="#" onClick={handleLogoClick} className="text-2xl font-bold font-display tracking-tighter uppercase z-50 group">
+        <Link href="/" className="text-2xl font-bold font-display tracking-tighter uppercase z-50 group">
           LACLASS<span className="text-cyan-400 group-hover:animate-pulse">.DEV</span>
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-12 items-center bg-white/5 backdrop-blur-md px-8 py-3 rounded-full border border-white/10">
@@ -58,12 +53,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home', onNavigateHome }
             ))
           ) : (
              <div className="flex gap-8">
-                <button 
-                  onClick={onNavigateHome}
+                <Link href='/'
                   className="text-xs font-bold uppercase tracking-[0.2em] hover:text-cyan-400 transition-colors flex items-center gap-2"
                 >
-                  <span className="text-lg">←</span> Home
-                </button>
+                  <span className="text-lg"><ArrowLeft /></span> Home
+                </Link>
                 {currentRoute === 'blog-post' && (
                     <Link
                       href="/blog"

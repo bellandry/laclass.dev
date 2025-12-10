@@ -1,6 +1,7 @@
 "use client"
 
 import About from "@/components/about";
+import Contact from "@/components/contact";
 import CustomCursor from "@/components/custom-cursor";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
@@ -38,6 +39,9 @@ export const PageClient = () => {
 
         {/* Projects Section */}
         <Projects />
+
+        {/* Contact Section */}
+        <Contact />
       </main>
     </div>
   )

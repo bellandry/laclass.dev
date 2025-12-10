@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
       <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto">
         
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold font-display tracking-tighter uppercase z-50 group">
+        <Link href="/#" className="text-2xl font-bold font-display tracking-tighter uppercase z-50 group">
           LACLASS<span className="text-cyan-400 group-hover:animate-pulse">.DEV</span>
         </Link>
 

@@ -40,6 +40,7 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   cursor: none; /* Custom cursor enabled */
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3,

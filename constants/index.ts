@@ -1,4 +1,4 @@
-import { Project } from "@/types";
+import { Job, Project } from "@/types";
 
 export const projects: Project[] = [
   {
@@ -45,5 +45,29 @@ export const projects: Project[] = [
     longDescription: "Quickdo represents a leap forward in digital access to books. I led the optimization of their library management system, improving both the React web dashboard and the React Native mobile app. Key contributions involved refactoring legacy code for 40% faster load times, implementing offline reading capabilities, and ensuring seamless synchronization between devices.",
     technologies: ["React Native", "Node.js", "MongoDB", "Offline First", "Performance"]
   },
+];
+
+export const jobs: Job[] = [
+  {
+    company: "Quickdo Canada",
+    role: "Senior Software Engineer",
+    period: "2023 - 2024",
+    description: "Spearheaded the optimization of the library management ecosystem. Enhanced both web and mobile applications using React and React Native, resulting in improved performance and user engagement.",
+    tags: ["React Native", "Node.js", "Web/Mobile Optimization"]
+  },
+  {
+    company: "CINAF TV",
+    role: "Tech Lead",
+    period: "2021 - 2023",
+    description: "Led a team of 8 developers in building and maintaining the 'Netflix of Cameroon'. Architected high-availability systems, configured load balancing for massive user traffic, and implemented DevOps pipelines to streamline deployment.",
+    tags: ["Team Leadership", "Load Balancing", "DevOps", "Scalability"]
+  },
+  {
+    company: "CINAF TV",
+    role: "Founding Developer",
+    period: "2019 - 2021",
+    description: "The first developer of the startup. Built the core web application from scratch and developed robust APIs to support future mobile and TV applications.",
+    tags: ["React", "Node.js", "API Design", "Startup"]
+  }
 ];
 

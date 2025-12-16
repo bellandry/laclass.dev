@@ -1,3 +1,4 @@
+import { getPost, getRelatedPosts } from '@/services/blog';
 import BlogPage from "./client-page";
 
 interface Props {
@@ -6,10 +7,12 @@ interface Props {
 
 export default async function Page({ params }: Props) {
 	const { slug } = await params;
+    const post = getPost(slug);
+    const relatedPosts = post ? getRelatedPosts(slug) : [];
 
 	return (
 		<>
-			<BlogPage postId={slug} />
+			<BlogPage post={post} relatedPosts={relatedPosts} />
 		</>
 	);
 }

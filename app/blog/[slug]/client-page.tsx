@@ -1,33 +1,24 @@
 "use client"
 
-import { BlogPost, getPost, getRelatedPosts } from '@/services/blog';
+import { BlogPost } from '@/types/blog';
 import gsap from 'gsap';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import { parseMarkdown } from './components/markdown-parser';
 
 interface BlogPageProps {
-  postId: string | null;
+  post: BlogPost | null;
+  relatedPosts: BlogPost[];
 }
 
-const BlogPage: React.FC<BlogPageProps & { onNavigateToPost?: (id: string) => void }> = ({ postId, onNavigateToPost }) => {
+const BlogPage: React.FC<BlogPageProps> = ({ post, relatedPosts }) => {
   const [activeSection, setActiveSection] = useState<string>('');
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const contentRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     // Scroll to top when post changes
     window.scrollTo(0, 0);
-
-    if (postId) {
-        const data = getPost(postId);
-        setPost(data);
-        if (data) {
-             setRelatedPosts(getRelatedPosts(postId));
-        }
-    }
-  }, [postId]);
+  }, [post]);
 
   useEffect(() => {
     if (!post) return;

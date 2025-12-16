@@ -1,15 +1,18 @@
 "use client"
 
-import { getAllPosts } from '@/services/blog';
+import { BlogPost } from '@/services/blog';
 import gsap from 'gsap';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 
-const BlogIndex: React.FC = () => {
+interface BlogIndexProps {
+  allArticles: BlogPost[]
+}
+
+const BlogIndex: React.FC <BlogIndexProps> = ({allArticles}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState("All");
 
-  const allArticles = getAllPosts();
   const categories = ["All", ...Array.from(new Set(allArticles.map(a => a.tag)))];
 
   const filteredArticles = filter === "All" 

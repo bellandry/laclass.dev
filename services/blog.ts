@@ -1,24 +1,9 @@
+import { BlogPost } from '@/types/blog';
+import fs from 'fs';
+import path from 'path';
+import "server-only";
 
-import leadership from '@/blog/articles/leadership';
-import reactPerf from '../blog/articles/react-performances';
-import scalingNode from '../blog/articles/scaling-nodejs';
-
-// Map of all raw post content
-const postsRaw: Record<string, string> = {
-  'scaling-nodejs': scalingNode,
-  'react-performance': reactPerf,
-  'leadership': leadership
-};
-
-export interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  tag: string;
-  image: string;
-  content: string; // The markdown body
-}
+export type { BlogPost };
 
 // Helper to parse Frontmatter
 const parsePost = (id: string, raw: string): BlogPost => {
@@ -59,11 +44,36 @@ const parsePost = (id: string, raw: string): BlogPost => {
   };
 };
 
+// Get all markdown files from the articles directory
+const getMarkdownFiles = (): Record<string, string> => {
+  const articlesDir = path.join(process.cwd(), 'blog', 'articles');
+  const posts: Record<string, string> = {};
+
+  try {
+    const files = fs.readdirSync(articlesDir);
+    
+    files.forEach(file => {
+      if (file.endsWith('.md')) {
+        const id = file.replace('.md', '');
+        const filePath = path.join(articlesDir, file);
+        const content = fs.readFileSync(filePath, 'utf-8');
+        posts[id] = content;
+      }
+    });
+  } catch (error) {
+    console.error('Error reading markdown files:', error);
+  }
+
+  return posts;
+};
+
 export const getAllPosts = (): BlogPost[] => {
+  const postsRaw = getMarkdownFiles();
   return Object.keys(postsRaw).map(id => parsePost(id, postsRaw[id]));
 };
 
 export const getPost = (id: string): BlogPost | null => {
+  const postsRaw = getMarkdownFiles();
   const raw = postsRaw[id];
   if (!raw) return null;
   return parsePost(id, raw);

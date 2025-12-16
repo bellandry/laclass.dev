@@ -1,4 +1,4 @@
-export default `---
+---
 title: Scaling Node.js Architecture
 excerpt: How I handled 10k+ concurrent users on CINAF TV using clustering and load balancing strategies.
 date: Oct 12, 2024
@@ -21,13 +21,13 @@ Node.js is single-threaded. While its event loop is brilliant for I/O operations
 ## The Solution: Clustering & PM2
 We immediately moved to utilize all CPU cores available on our AWS EC2 instances.
 
-\`\`\`javascript
+```javascript
 const cluster = require('cluster');
 const http = require('http');
 const numCPUs = require('os').cpus().length;
 
 if (cluster.isMaster) {
-  console.log(\`Master \${process.pid} is running\`);
+  console.log(`Master ${process.pid} is running`);
   // Fork workers.
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
@@ -36,10 +36,10 @@ if (cluster.isMaster) {
   // Workers can share any TCP connection
   http.createServer((req, res) => {
     res.writeHead(200);
-    res.end('Hello World\\n');
+    res.end('Hello World\n');
   }).listen(8000);
 }
-\`\`\`
+```
 
 ## Load Balancing
 We introduced NGINX as a reverse proxy and load balancer. This allowed us to terminate SSL at the edge and distribute traffic using a Round Robin algorithm.
@@ -53,11 +53,10 @@ Database queries were the next bottleneck. We implemented a **Write-Through** ca
 We used FFmpeg for adaptive bitrate streaming (HLS).
 
 ### Code Snippet: FFmpeg
-\`\`\`bash
+```bash
 ffmpeg -i input.mp4 \ 
   -profile:v baseline -level 3.0 -s 640x360 -start_number 0 -hls_time 10 -hls_list_size 0 -f hls index.m3u8
-\`\`\`
+```
 
 ## Conclusion
 By splitting the monolith into microservices for Auth, Video, and Billing, and utilizing the strategies above, we stabilized the platform to handle 10k+ concurrent users with sub-100ms latency.
-`;

@@ -1,3 +1,4 @@
+import Navbar from "@/components/navbar";
 import { getAllPosts } from "@/services/blog";
 import BlogIndex from "./client-page";
 
@@ -6,6 +7,11 @@ export default function Page() {
 
 	return (
 		<>
+      {/* Navbar */}
+      <Navbar
+        currentRoute={"blog-list"}
+      />
+
 			<BlogIndex allArticles={allArticles}  />
 		</>
 	);

@@ -1,3 +1,4 @@
+import Navbar from '@/components/navbar';
 import { getPost, getRelatedPosts } from '@/services/blog';
 import BlogPage from "./client-page";
 
@@ -11,7 +12,10 @@ export default async function Page({ params }: Props) {
     const relatedPosts = post ? getRelatedPosts(slug) : [];
 
 	return (
-		<>
+		<>{/* Navbar */}
+      <Navbar
+        currentRoute={"blog-post"}
+      />
 			<BlogPage post={post} relatedPosts={relatedPosts} />
 		</>
 	);

@@ -2,7 +2,6 @@
 
 import About from "@/components/about";
 import Contact from "@/components/contact";
-import CustomCursor from "@/components/custom-cursor";
 import Experience from "@/components/experience";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
@@ -21,9 +20,6 @@ export const PageClient = () => {
 
   return (
     <div className="bg-slate-950 min-h-screen text-slate-50 selection:bg-cyan-500 selection:text-black">
-      {/* Custom Cursor */}
-      <CustomCursor />
-
       {/* Navbar */}
       <Navbar
         currentRoute={currentRoute}

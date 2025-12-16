@@ -7,7 +7,9 @@ export type { BlogPost };
 
 // Helper to parse Frontmatter
 const parsePost = (id: string, raw: string): BlogPost => {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  // Normalize line endings to handle both \r\n (Windows) and \n (Unix)
+  const normalized = raw.replace(/\r\n/g, '\n');
+  const match = normalized.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   
   if (!match) {
     // Fallback if formatting fails
@@ -28,7 +30,7 @@ const parsePost = (id: string, raw: string): BlogPost => {
   const metadata: any = {};
   frontmatterBlock.split('\n').forEach(line => {
     const [key, ...value] = line.split(':');
-    if (key && value) {
+    if (key && value.length > 0) {
       metadata[key.trim()] = value.join(':').trim();
     }
   });

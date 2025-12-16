@@ -1,5 +1,3 @@
-"use client"
-
 import CustomCursor from "@/components/custom-cursor"
 import Navbar from "@/components/navbar"
 

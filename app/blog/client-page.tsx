@@ -60,7 +60,7 @@ const BlogIndex: React.FC = () => {
           <Link
             key={article.id} 
             className={`article-card group cursor-pointer flex flex-col ${index === 0 && filter === "All" ? "md:col-span-2 lg:col-span-3 lg:flex-row gap-12 mb-12 border-b border-white/10 pb-12" : ""}`}
-            href={`/blog/article/${article.id}`}
+            href={`/blog/${article.id}`}
           >
             {/* Image */}
             <div className={`relative overflow-hidden border border-white/10 rounded-sm mb-6 ${index === 0 && filter === "All" ? "w-full lg:w-2/3 aspect-video" : "aspect-[4/3]"}`}>

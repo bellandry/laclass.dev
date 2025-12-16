@@ -1,3 +1,5 @@
+"use client"
+
 import gsap from 'gsap';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';

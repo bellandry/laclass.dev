@@ -1,33 +1,25 @@
 "use client"
 
-import { BlogPost, getPost, getRelatedPosts } from '@/services/blog';
+import { BlogCard } from '@/components/blog/blog-card';
+import { BlogPost } from '@/types/blog';
 import gsap from 'gsap';
-import Link from 'next/link';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-import { parseMarkdown } from './components/markdown-parser';
+import { parseMarkdown } from '../../../components/blog/markdown-parser';
 
 interface BlogPageProps {
-  postId: string | null;
+  post: BlogPost | null;
+  relatedPosts: BlogPost[];
 }
 
-const BlogPage: React.FC<BlogPageProps & { onNavigateToPost?: (id: string) => void }> = ({ postId, onNavigateToPost }) => {
+const BlogPage: React.FC<BlogPageProps> = ({ post, relatedPosts }) => {
   const [activeSection, setActiveSection] = useState<string>('');
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const contentRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     // Scroll to top when post changes
     window.scrollTo(0, 0);
-
-    if (postId) {
-        const data = getPost(postId);
-        setPost(data);
-        if (data) {
-             setRelatedPosts(getRelatedPosts(postId));
-        }
-    }
-  }, [postId]);
+  }, [post]);
 
   useEffect(() => {
     if (!post) return;
@@ -61,33 +53,33 @@ const BlogPage: React.FC<BlogPageProps & { onNavigateToPost?: (id: string) => vo
   const { elements, toc } = parseMarkdown(post.content);
 
   return (
-    <div className="min-h-screen bg-[#050505] pt-32 pb-24">
+    <article className="min-h-screen bg-[#050505] pt-32 pb-24" itemScope itemType="https://schema.org/Article">
       
       {/* Hero Header */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
+      <header className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
           <div className="flex gap-4 mb-6">
                <span className="px-3 py-1 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest rounded-full">{post.tag}</span>
                <span className="px-3 py-1 border border-white/10 text-slate-400 text-xs font-bold uppercase tracking-widest rounded-full">Read Article</span>
           </div>
-          <h1 className="blog-hero-text text-5xl md:text-8xl font-display font-bold text-white leading-[0.9] mb-8 max-w-5xl">
+          <h1 className="blog-hero-text text-4xl md:text-7xl font-display font-bold text-white leading-[0.9] mb-8 max-w-5xl" itemProp="headline">
               {post.title}
           </h1>
           <div className="flex items-center gap-4 border-t border-white/10 pt-8 mt-8">
-              <div className="w-12 h-12 bg-slate-800 rounded-full overflow-hidden">
-                 <div className="w-full h-full bg-cyan-900 flex items-center justify-center text-cyan-400 font-bold">LB</div>
+              <div className="w-12 aspect-square bg-slate-800 rounded-full overflow-hidden">
+                <Image src="/projects/wiishop.jpg" alt={`${post.author}'s image`} width={50} height={50} className='object-cover h-full' itemProp="image" />
               </div>
-              <div>
-                  <div className="text-white font-bold uppercase tracking-widest text-sm">Landry Bella</div>
-                  <div className="text-slate-500 text-xs uppercase tracking-widest">{post.date}</div>
+              <div itemProp="author" itemScope itemType="https://schema.org/Person">
+                  <div className="text-white font-bold uppercase tracking-widest text-sm" itemProp="name">{post.author}</div>
+                  <time className="text-slate-500 text-xs uppercase tracking-widest" dateTime={post.date} itemProp="datePublished">{post.date}</time>
               </div>
           </div>
-      </div>
+      </header>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12">
           
           {/* Sidebar (TOC) */}
           <aside className="hidden md:block md:col-span-3">
-             <div className="sticky top-40">
+             <div className="sticky top-30">
                  <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-6 border-b border-white/10 pb-2">Contents</h4>
                  <ul className="space-y-4 border-l border-white/10">
                      {toc.map((section) => (
@@ -127,30 +119,21 @@ const BlogPage: React.FC<BlogPageProps & { onNavigateToPost?: (id: string) => vo
 
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
-                <div className="mt-24">
-                     <h3 className="text-4xl font-display font-bold text-white mb-12">Read <span className="text-cyan-400">Next</span></h3>
-                     <div className="grid md:grid-cols-2 gap-8">
-                        {relatedPosts.map(related => (
-                            <Link 
-                                key={related.id} 
-                                href={`/blog/${related.id}`}
-                                className="group cursor-pointer bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-colors p-6 rounded-lg"
-                            >
-                                <div className="mb-4 overflow-hidden h-48 rounded-sm">
-                                    <img src={related.image} alt={related.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                                </div>
-                                <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-2 block">{related.tag}</span>
-                                <h4 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{related.title}</h4>
-                                <p className="text-slate-400 text-sm line-clamp-2">{related.excerpt}</p>
-                            </Link>
-                        ))}
-                     </div>
-                </div>
+              <div className="mt-24">
+                  <h3 className="text-4xl font-display font-bold text-white mb-12">Read <span className="text-cyan-400">Next</span></h3>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {relatedPosts.map((related, index) => (
+                      <div key={related.id}>
+                        <BlogCard index={index} article={related} />
+                      </div>
+                    ))}
+                  </div>
+              </div>
             )}
           </article>
 
       </div>
-    </div>
+    </article>
   );
 };
 

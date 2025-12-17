@@ -1,4 +1,4 @@
-export default `---
+---
 title: From Coder to Tech Lead
 excerpt: Lessons learned managing a team of 8 developers. Empathy, delegation, and code reviews.
 date: Sep 20, 2024
@@ -26,4 +26,3 @@ Code reviews are for sharing knowledge, not just finding bugs.
 
 ## Conclusion
 Leadership is a service. Your job is to unblock your team and help them do their best work.
-`;

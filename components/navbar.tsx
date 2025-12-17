@@ -54,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
               </Link>
             ))
           ) : (
-             <div className="flex gap-8">
+             <div className="flex items-center gap-8">
                 <Link href='/'
                   className="text-xs font-bold uppercase tracking-[0.2em] hover:text-cyan-400 transition-colors flex items-center gap-2"
                 >

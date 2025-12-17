@@ -1,4 +1,4 @@
-export default `---
+---
 title: The Art of React Performance
 excerpt: Unlocking 60fps animations and reducing bundle size in large-scale Next.js applications.
 date: Nov 05, 2024
@@ -19,24 +19,23 @@ In the world of high-end portfolios and web applications, performance isn't just
 ## Optimization Techniques
 
 ### 1. Memoization
-Use \`useMemo\` and \`useCallback\` judiciously.
+Use `useMemo` and `useCallback` judiciously.
 
-\`\`\`javascript
+```javascript
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
-\`\`\`
+```
 
 ### 2. Virtualization
 For long lists, always use windowing.
 
 ### 3. Code Splitting
-Break up your app into smaller chunks using \`React.lazy\` or Next.js dynamic imports.
+Break up your app into smaller chunks using `React.lazy` or Next.js dynamic imports.
 
-\`\`\`javascript
+```javascript
 const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
   loading: () => <p>Loading...</p>,
 });
-\`\`\`
+```
 
 ## Conclusion
 Performance tuning is an iterative process. Measure first, then optimize.
-`;

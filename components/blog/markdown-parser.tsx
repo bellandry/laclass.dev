@@ -46,7 +46,7 @@ export const parseMarkdown = (text: string) => {
         const styles = level === 1 
             ? "hidden" // Hide H1 in content as we render it in Hero
             : level === 2 
-            ? "text-3xl md:text-4xl font-display font-bold text-white mt-16 mb-6 scroll-mt-32" 
+            ? "text-3xl md:text-4xl font-display font-bold text-white mt-6 mb-6 scroll-mt-32" 
             : "text-xl md:text-2xl font-bold text-cyan-400 mt-8 mb-4 scroll-mt-32";
 
         elements.push(<Tag id={id} key={index} className={styles}>{title}</Tag>);

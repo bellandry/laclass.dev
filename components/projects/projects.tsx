@@ -1,6 +1,7 @@
 import { projects } from '@/constants';
 import { Project } from '@/types';
 import gsap from 'gsap';
+import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import { ProjectCard } from './project-card';
 import { ProjectModal } from './project-modal';
@@ -57,9 +58,9 @@ const Projects: React.FC = () => {
             {/* End Card */}
             <div className="w-[50vw] md:w-[30vw] h-[70vh] flex flex-col justify-center items-center text-center border-l border-white/10">
                 <h3 className="text-4xl font-display font-bold mb-8">More in<br/>Archives</h3>
-                <a href="#" className="px-8 py-4 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 rounded-full uppercase tracking-widest text-sm">
-                    View All
-                </a>
+                <Link href="/blog" className="px-8 py-4 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 rounded-full uppercase tracking-widest text-sm">
+                    View More
+                </Link>
             </div>
 
           </div>

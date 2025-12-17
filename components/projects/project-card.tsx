@@ -14,7 +14,7 @@ export const ProjectCard = ({ project, onSelectedProject }: ProjectCardProps) =>
         {/* Image */}
         <div className="absolute inset-0 overflow-hidden">
             <img 
-                src={project.image} 
+                src={project.image[0]} 
                 alt={project.title} 
                 className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
             />
@@ -22,7 +22,7 @@ export const ProjectCard = ({ project, onSelectedProject }: ProjectCardProps) =>
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 bg-gradient-to-t from-black/90 to-transparent translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+        <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 bg-linear-to-t from-black/90 to-transparent translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
             <div className="flex justify-between items-end border-b border-white/20 pb-6 mb-6">
                 <div>
                     <span className="text-cyan-400 font-mono text-sm mb-2 block">{project.category} — {project.year}</span>

@@ -5,17 +5,18 @@ export const projects: Project[] = [
     title: "CINAF TV",
     category: "Streaming Platform",
     year: "2019-2023",
-    image: "/projects/capture-cinaf.png",
+    image: ["/projects/capture-cinaf.png"],
     description: "The 'Netflix of Cameroon'. A massive VOD platform for African cinema.",
     longDescription:
       "CINAF TV is a pioneering video-on-demand platform dedicated to promoting Cameroonian and African cinema. As the lead architect, I built the initial web application and scaled it to serve thousands of users. The system includes a complex load-balancing architecture to handle high traffic during premieres, a custom video player with adaptive bitrate streaming, and a robust API ecosystem serving mobile and TV apps.",
-    technologies: ["React", "Node.js", "AWS", "FFmpeg", "Redis", "Load Balancing"]
+    technologies: ["React", "Node.js", "AWS", "FFmpeg", "Redis", "Load Balancing"],
+    appUrl: "https://cinaf.tv"
   },
   {
     title: "Wiishop",
     category: "Ecommerce SaaS",
     year: "2023-2024",
-    image: "/projects/wiishop.jpg",
+    image: ["/projects/wiishop.jpg", "/projects/wiishop1.png", "/projects/wiishop2.png", "/projects/wiishop3.png", "/projects/wiishop4.png"],
     description:
       "A no-code ecommerce SaaS that lets merchants launch professional online stores in minutes.",
     longDescription:
@@ -27,13 +28,14 @@ export const projects: Project[] = [
       "Ecommerce",
       "WhatsApp Integration",
       "No-Code"
-    ]
+    ],
+    appUrl: "https://wiishop.app"
   },
   {
     title: "Wii-Unit",
     category: "Crowdfunding SaaS",
     year: "2024",
-    image: "/projects/wii-unit.png",
+    image: ["/projects/wii-unit.png"],
     description:
       "A crowdfunding platform for individuals and businesses to create and manage fundraising campaigns.",
     longDescription:
@@ -45,13 +47,14 @@ export const projects: Project[] = [
       "SaaS",
       "Crowdfunding",
       "Scalable Architecture"
-    ]
+    ],
+    appUrl: "https://wii-unit.laclass.dev"
   },
   {
     title: "Format Flow",
     category: "Web Utility Platform",
     year: "2024",
-    image: "/projects/format-flow.webp",
+    image: ["/projects/format-flow.webp"],
     description:
       "A fast, browser-based platform for converting audio, video, and images.",
     longDescription:
@@ -63,7 +66,9 @@ export const projects: Project[] = [
       "Frontend Performance",
       "UX Design",
       "Modern Web Architecture"
-    ]
+    ],
+    appUrl: "https://mediaconverter.laclass.dev",
+    gitUrl: "https://github.com/bellandry/media-converter"
   }
 ];
 

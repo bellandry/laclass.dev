@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 		siteName: "Landry Bella",
 		images: [
 			{
-				url: "https://laclass.dev/og-blog.jpg",
+				url: "https://laclass.dev/og-blog.png",
 				width: 1200,
 				height: 630,
 				alt: "Landry Bella Blog",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Blog | Landry Bella - Insights & Writings",
 		description: "Explore articles on software engineering, leadership, performance optimization, and modern web development.",
-		images: ["https://laclass.dev/og-blog.jpg"],
+		images: ["https://laclass.dev/og-blog.png"],
 	},
 	alternates: {
 		canonical: "https://laclass.dev/blog",
@@ -39,7 +39,6 @@ export default function Page() {
 
 	return (
 		<>
-      {/* Navbar */}
       <Navbar
         currentRoute={"blog-list"}
       />

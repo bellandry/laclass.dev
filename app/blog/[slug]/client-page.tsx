@@ -53,28 +53,27 @@ const BlogPage: React.FC<BlogPageProps> = ({ post, relatedPosts }) => {
   const { elements, toc } = parseMarkdown(post.content);
 
   return (
-    <div className="min-h-screen bg-[#050505] pt-32 pb-24">
+    <article className="min-h-screen bg-[#050505] pt-32 pb-24" itemScope itemType="https://schema.org/Article">
       
       {/* Hero Header */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
+      <header className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
           <div className="flex gap-4 mb-6">
                <span className="px-3 py-1 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest rounded-full">{post.tag}</span>
                <span className="px-3 py-1 border border-white/10 text-slate-400 text-xs font-bold uppercase tracking-widest rounded-full">Read Article</span>
           </div>
-          <h1 className="blog-hero-text text-4xl md:text-7xl font-display font-bold text-white leading-[0.9] mb-8 max-w-5xl">
+          <h1 className="blog-hero-text text-4xl md:text-7xl font-display font-bold text-white leading-[0.9] mb-8 max-w-5xl" itemProp="headline">
               {post.title}
           </h1>
           <div className="flex items-center gap-4 border-t border-white/10 pt-8 mt-8">
               <div className="w-12 aspect-square bg-slate-800 rounded-full overflow-hidden">
-                <Image src="/projects/wiishop.jpg" alt={`${post.author}'s image`} width={50} height={50} className='object-cover h-full' />
-                 {/* <div className="w-full h-full bg-cyan-900 flex items-center justify-center text-cyan-400 font-bold">LB</div> */}
+                <Image src="/projects/wiishop.jpg" alt={`${post.author}'s image`} width={50} height={50} className='object-cover h-full' itemProp="image" />
               </div>
-              <div>
-                  <div className="text-white font-bold uppercase tracking-widest text-sm">{post.author}</div>
-                  <div className="text-slate-500 text-xs uppercase tracking-widest">{post.date}</div>
+              <div itemProp="author" itemScope itemType="https://schema.org/Person">
+                  <div className="text-white font-bold uppercase tracking-widest text-sm" itemProp="name">{post.author}</div>
+                  <time className="text-slate-500 text-xs uppercase tracking-widest" dateTime={post.date} itemProp="datePublished">{post.date}</time>
               </div>
           </div>
-      </div>
+      </header>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12">
           
@@ -134,7 +133,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ post, relatedPosts }) => {
           </article>
 
       </div>
-    </div>
+    </article>
   );
 };
 

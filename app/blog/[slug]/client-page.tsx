@@ -108,7 +108,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ post, relatedPosts }) => {
              {/* Article Footer */}
              <div className="mt-24 pt-12 border-t border-white/10">
                  <h3 className="text-2xl font-display font-bold text-white mb-8">Share this article</h3>
-                 <div className="flex gap-4">
+                 <div className="flex flex-wrap gap-4">
                      {['Twitter', 'LinkedIn', 'Facebook'].map(social => (
                          <button key={social} className="px-6 py-3 border border-white/20 rounded-full text-slate-400 hover:bg-white hover:text-black hover:border-white transition-all text-sm uppercase tracking-widest">
                              {social}

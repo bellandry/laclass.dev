@@ -25,19 +25,29 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
 
   const links = [
     { name: "About", href: "#about" },
-    { name: "Stack", href: "#skills" },
     { name: "Experience", href: "#experience" },
+    { name: "Stack", href: "#skills" },
     { name: "Works", href: "#projects" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "#contact" }
   ];
+
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 px-6 py-8 mix-blend-difference text-white">
       <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto">
         
         {/* Logo */}
-        <Link href="/#" className="text-2xl font-bold font-display tracking-tighter uppercase z-50 group">
+        <Link href="/#" onClick={() => scrollToId("home")} scroll={false} className="text-2xl font-bold font-display tracking-tighter uppercase z-50 group">
           LACLASS<span className="text-cyan-400 group-hover:animate-pulse">.DEV</span>
         </Link>
 
@@ -47,7 +57,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
             links.map((link) => (
               <Link
                 key={link.name} 
-                href={link.href} 
+                href={link.href}
+                scroll={false}
+                onClick={() => scrollToId(link.name.toLowerCase())}
                 className="text-xs font-bold uppercase tracking-[0.2em] hover:text-cyan-400 transition-colors"
               >
                 {link.name}
@@ -56,6 +68,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
           ) : (
              <div className="flex items-center gap-8">
                 <Link href='/'
+                  scroll={false}
+                  onClick={() => scrollToId("home")}
                   className="text-xs font-bold uppercase tracking-[0.2em] hover:text-cyan-400 transition-colors flex items-center gap-2"
                 >
                   <span className="text-lg"><ArrowLeft /></span> Home
@@ -84,11 +98,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
 
         {/* Mobile Overlay */}
         {isOpen && (
-          <div className="fixed inset-0 bg-black z-40 flex flex-col justify-center items-center">
+          <div className="fixed inset-0 bg-black backdrop-blur-lg z-40 flex flex-col justify-center items-center">
              {currentRoute === 'home' ? links.map((link) => (
                 <Link 
                   key={link.name}
                   href={link.href}
+                  scroll={false}
+                  onClick={() => {
+                    scrollToId(link.name.toLowerCase())
+                    toggleMenu()
+                  }}
                   className="mobile-link text-5xl font-display font-bold uppercase mb-8 hover:text-cyan-400 transition-colors"
                 >
                   {link.name}
@@ -96,6 +115,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
              )) : (
                 <Link 
                   href="/"
+                  scroll={false}
+                  onClick={() => {
+                    scrollToId("home")
+                    toggleMenu()
+                  }}
                   className="mobile-link text-5xl font-display font-bold uppercase mb-8 hover:text-cyan-400 transition-colors"
                 >
                   Back Home

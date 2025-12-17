@@ -50,18 +50,18 @@ const Skills: React.FC = () => {
 
   return (
     <section id="stack" ref={containerRef} className="py-32 bg-[#050505] overflow-hidden relative border-y border-white/5">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505] z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#050505] via-transparent to-[#050505] z-10 pointer-events-none" />
 
       <div className="mb-16 px-6 text-center">
          <p className="text-cyan-400 uppercase tracking-widest text-sm font-bold mb-4">The Arsenal</p>
          <h2 className="text-3xl xs:text-4xl md:text-6xl font-display font-bold text-white">Technologies</h2>
       </div>
 
-      <div className="flex flex-col gap-12 rotate-[-2deg] scale-110">
+      <div className="flex flex-col gap-12 -rotate-2 scale-110">
         {/* Row 1 */}
         <div className="marquee-row-1 flex gap-8 w-max whitespace-nowrap">
           {topRow.map((skill, i) => (
-             <span key={i} className="text-4xl md:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-slate-700 to-slate-900 stroke-text hover:text-white transition-colors duration-500 cursor-default px-4">
+             <span key={i} className="text-4xl md:text-8xl font-display font-bold text-transparent bg-clip-text bg-linear-to-b from-slate-700 to-slate-900 stroke-text hover:text-white transition-colors duration-500 cursor-default px-4">
                 {skill}
              </span>
           ))}
@@ -70,7 +70,7 @@ const Skills: React.FC = () => {
         {/* Row 2 */}
         <div className="marquee-row-2 flex gap-8 w-max whitespace-nowrap">
           {bottomRow.map((skill, i) => (
-             <span key={i} className="text-5xl md:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-slate-700 to-slate-900 stroke-text hover:text-white transition-colors duration-500 cursor-default px-4">
+             <span key={i} className="text-5xl md:text-8xl font-display font-bold text-transparent bg-clip-text bg-linear-to-b from-slate-700 to-slate-900 stroke-text hover:text-white transition-colors duration-500 cursor-default px-4">
                 {skill}
              </span>
           ))}

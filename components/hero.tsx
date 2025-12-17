@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
     >
       
       {/* Abstract Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-[#050505]"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-[#0a0a0a] to-[#050505]"></div>
       <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-cyan-900/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
       <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -65,18 +65,18 @@ const Hero: React.FC = () => {
         
         {/* Line 1 */}
         <div className="overflow-hidden">
-          <h1 className="hero-line transform translate-y-[100%] opacity-0 text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500 mix-blend-difference">
+          <h1 className="hero-line transform translate-y-full opacity-0 text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-transparent bg-clip-text bg-linear-to-br from-white via-slate-200 to-slate-500 mix-blend-difference">
             Landry
           </h1>
         </div>
 
         {/* Line 2 with Accent */}
         <div className="overflow-hidden flex items-center justify-center gap-4 md:gap-8">
-            <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-[100%] opacity-0"></div>
-            <h1 className="hero-line transform translate-y-[100%] opacity-0 text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-white">
+            <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-full opacity-0"></div>
+            <h1 className="hero-line transform translate-y-full opacity-0 text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-white">
                 Bella
             </h1>
-            <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-[100%] opacity-0"></div>
+            <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-full opacity-0"></div>
         </div>
         
         <p className="hero-sub mt-12 text-slate-400 text-lg md:text-xl font-light tracking-[0.2em] uppercase max-w-xl mx-auto">

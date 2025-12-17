@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-import { parseMarkdown } from './components/markdown-parser';
+import { parseMarkdown } from '../../../components/blog/markdown-parser';
 
 interface BlogPageProps {
   post: BlogPost | null;

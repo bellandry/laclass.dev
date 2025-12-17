@@ -36,7 +36,7 @@ const Projects: React.FC = () => {
 
   return (
     <>
-      <section id="projects" className="bg-[#050505] overflow-hidden">
+      <section id="works" className="bg-[#050505] overflow-hidden">
         {/* Header (Static before scroll) */}
         <div className="px-6 md:px-12 py-24 max-w-7xl mx-auto">
           <h2 className="text-5xl md:text-7xl font-display font-bold uppercase leading-tight">

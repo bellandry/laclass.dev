@@ -49,7 +49,11 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="h-screen w-full flex flex-col justify-center items-center relative overflow-hidden bg-[#050505]">
+    <section 
+      ref={containerRef} 
+      className="h-screen w-full flex flex-col justify-center items-center relative overflow-hidden bg-[#050505]"
+      id="home"
+    >
       
       {/* Abstract Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-[#050505]"></div>

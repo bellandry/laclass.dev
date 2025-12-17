@@ -110,7 +110,7 @@ laclass.dev/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/laclass.dev.git
+   git clone https://github.com/bellandry/laclass.dev.git
    cd laclass.dev
    ```
 
@@ -212,9 +212,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Landry Bella**
 - Website: [laclass.dev](https://laclass.dev)
-- GitHub: [@landrybella](https://github.com/landrybella)
-- LinkedIn: [landrybella](https://linkedin.com/in/landrybella)
-- Twitter: [@landrybella](https://twitter.com/landrybella)
+- GitHub: [@bellandry](https://github.com/bellandry)
+- LinkedIn: [bellandry](https://linkedin.com/in/bellandry)
+- Twitter: [@LaclassDev](https://x.com/LaclassDev)
 
 ## 🙏 Acknowledgments
 
@@ -225,4 +225,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Built with ❤️ using Next.js 16**
+**Built with ❤️ using Next.js 16.0.7

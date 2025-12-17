@@ -49,7 +49,7 @@ const Skills: React.FC = () => {
   }, []);
 
   return (
-    <section id="skills" ref={containerRef} className="py-32 bg-[#050505] overflow-hidden relative border-y border-white/5">
+    <section id="stack" ref={containerRef} className="py-32 bg-[#050505] overflow-hidden relative border-y border-white/5">
       <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505] z-10 pointer-events-none" />
 
       <div className="mb-16 px-6 text-center">

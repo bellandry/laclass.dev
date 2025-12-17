@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react";
 
 export const CodeBlock = ({ language, code }: { language: string, code: string }) => {
@@ -17,7 +19,7 @@ export const CodeBlock = ({ language, code }: { language: string, code: string }
     };
 
     return (
-        <div className="my-10 rounded-lg overflow-hidden bg-[#151515] border border-white/10 shadow-2xl relative group">
+        <div className="my-10 rounded-lg overflow-hidden bg-[#151515] border border-white/10 shadow-2xl relative group w-full max-w-[90vw]">
             <div className="bg-[#1e1e1e] px-4 py-3 border-b border-white/5 flex justify-between items-center select-none">
                 <div className="flex gap-2 items-center">
                     <div className="flex gap-1.5 mr-2">
@@ -30,7 +32,7 @@ export const CodeBlock = ({ language, code }: { language: string, code: string }
                 
                 <button 
                     onClick={handleCopy}
-                    className="flex items-center gap-2 hover:bg-white/10 px-3 py-1.5 rounded-md transition-all duration-300"
+                    className="flex items-center gap-2 hover:bg-white/10 px-4 py-1.5 rounded-md transition-all duration-300"
                 >
                     {isCopied ? (
                         <>

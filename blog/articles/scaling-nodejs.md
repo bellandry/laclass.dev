@@ -1,6 +1,7 @@
 ---
 title: Scaling Node.js Architecture
 excerpt: How I handled 10k+ concurrent users on CINAF TV using clustering and load balancing strategies.
+author: Landry Bella
 date: Oct 12, 2024
 tag: Engineering
 image: https://picsum.photos/800/600?random=10

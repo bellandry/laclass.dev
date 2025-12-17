@@ -2,6 +2,7 @@
 
 import { BlogPost } from '@/types/blog';
 import gsap from 'gsap';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import { parseMarkdown } from './components/markdown-parser';
@@ -55,20 +56,21 @@ const BlogPage: React.FC<BlogPageProps> = ({ post, relatedPosts }) => {
     <div className="min-h-screen bg-[#050505] pt-32 pb-24">
       
       {/* Hero Header */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
           <div className="flex gap-4 mb-6">
                <span className="px-3 py-1 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest rounded-full">{post.tag}</span>
                <span className="px-3 py-1 border border-white/10 text-slate-400 text-xs font-bold uppercase tracking-widest rounded-full">Read Article</span>
           </div>
-          <h1 className="blog-hero-text text-5xl md:text-8xl font-display font-bold text-white leading-[0.9] mb-8 max-w-5xl">
+          <h1 className="blog-hero-text text-4xl md:text-7xl font-display font-bold text-white leading-[0.9] mb-8 max-w-5xl">
               {post.title}
           </h1>
           <div className="flex items-center gap-4 border-t border-white/10 pt-8 mt-8">
-              <div className="w-12 h-12 bg-slate-800 rounded-full overflow-hidden">
-                 <div className="w-full h-full bg-cyan-900 flex items-center justify-center text-cyan-400 font-bold">LB</div>
+              <div className="w-12 aspect-square bg-slate-800 rounded-full overflow-hidden">
+                <Image src="/projects/wiishop.jpg" alt={`${post.author}'s image`} width={50} height={50} className='object-cover h-full' />
+                 {/* <div className="w-full h-full bg-cyan-900 flex items-center justify-center text-cyan-400 font-bold">LB</div> */}
               </div>
               <div>
-                  <div className="text-white font-bold uppercase tracking-widest text-sm">Landry Bella</div>
+                  <div className="text-white font-bold uppercase tracking-widest text-sm">{post.author}</div>
                   <div className="text-slate-500 text-xs uppercase tracking-widest">{post.date}</div>
               </div>
           </div>
@@ -78,7 +80,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ post, relatedPosts }) => {
           
           {/* Sidebar (TOC) */}
           <aside className="hidden md:block md:col-span-3">
-             <div className="sticky top-40">
+             <div className="sticky top-30">
                  <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-6 border-b border-white/10 pb-2">Contents</h4>
                  <ul className="space-y-4 border-l border-white/10">
                      {toc.map((section) => (

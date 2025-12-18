@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 px-6 py-8 text-white">
+    <nav className={`fixed top-0 w-full z-50 px-6 py-8 text-white ${!isOpen && "mix-blend-difference"}`}>
       <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto">
         
         {/* Logo */}

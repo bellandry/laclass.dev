@@ -20,16 +20,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const url = `https://laclass.dev/blog/${slug}`;
 
 	return {
-		title: `${post.title} | Landry Bella`,
+		title: `${post.title}`,
 		description: post.excerpt,
-		keywords: [post.tag, "software engineering", "web development", "programming"],
+		keywords: [post.keywords, "software engineering", "web development", "programming"],
 		authors: [{ name: "Landry Bella" }],
 		openGraph: {
 			title: post.title,
 			description: post.excerpt,
 			type: "article",
 			url,
-			siteName: "Landry Bella",
+			siteName: "Laclass Dev ",
 			images: [
 				{
 					url: post.image,

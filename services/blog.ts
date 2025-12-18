@@ -20,6 +20,7 @@ const parsePost = (id: string, raw: string): BlogPost => {
       author: "Landry B.",
       date: '',
       tag: 'General',
+      keywords: "",
       image: '',
       content: raw
     };
@@ -43,6 +44,7 @@ const parsePost = (id: string, raw: string): BlogPost => {
     author: metadata.author || 'Landry B',
     date: metadata.date || '',
     tag: metadata.tag || 'General',
+    keywords: metadata.keywords,
     image: metadata.image || '',
     content
   };

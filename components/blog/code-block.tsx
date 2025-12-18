@@ -1,5 +1,6 @@
 "use client"
 
+import Prism from "@/lib/prism";
 import { useEffect, useRef, useState } from "react";
 
 export const CodeBlock = ({ language, code }: { language: string, code: string }) => {
@@ -7,8 +8,8 @@ export const CodeBlock = ({ language, code }: { language: string, code: string }
     const codeRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        if (codeRef.current && (window as any).Prism) {
-             (window as any).Prism.highlightElement(codeRef.current);
+        if (codeRef.current) {
+            Prism.highlightElement(codeRef.current);
         }
     }, [code, language]);
 
@@ -36,20 +37,20 @@ export const CodeBlock = ({ language, code }: { language: string, code: string }
                 >
                     {isCopied ? (
                         <>
-                            <svg className="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                            <svg className="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                             <span className="text-[10px] text-green-400 font-bold uppercase tracking-widest">Copied</span>
                         </>
                     ) : (
                         <>
-                            <svg className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" /></svg>
+                            <svg className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" /></svg>
                             <span className="text-[10px] text-slate-400 group-hover:text-white font-bold uppercase tracking-widest transition-colors">Copy</span>
                         </>
                     )}
                 </button>
             </div>
             <div className="relative">
-                 <pre className={`!bg-[#151515] !m-0 !p-6 overflow-x-auto custom-scrollbar !text-sm`}>
-                    <code ref={codeRef} className={`language-${language || 'none'} !text-sm !font-mono !leading-relaxed`}>
+                 <pre className={`bg-[#151515] m-0 p-6 overflow-x-auto custom-scrollbar text-sm`}>
+                    <code ref={codeRef} className={`language-${language || 'none'} text-sm font-mono leading-relaxed`}>
                         {code}
                     </code>
                 </pre>

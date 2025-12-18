@@ -3,7 +3,8 @@ title: Bienvenue sur mon blog
 excerpt: Une courte introduction à cet espace et à ce que vous trouverez dans les prochains articles.
 author: Landry Bella
 date: Dec 17, 2025
-tag: Personnel, portfolio
+keywords: Landry Bella,portfolio,blog,Laclass Dev,Landry Bella Blog
+tag: Personnel
 image: https://images.unsplash.com/photo-1498050108023-c5249f4df085
 ---
 

@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
         
         {/* Line 1 */}
         <div className="overflow-hidden">
-          <h1 className="hero-line transform translate-y-full opacity-0 text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-transparent bg-clip-text bg-linear-to-br from-white via-slate-200 to-slate-500 mix-blend-difference">
+          <h1 className="hero-line transform translate-y-full opacity-0 text-[15vw] md:text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-transparent bg-clip-text bg-linear-to-br from-white via-slate-200 to-slate-500 mix-blend-difference">
             Landry
           </h1>
         </div>
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
         {/* Line 2 with Accent */}
         <div className="overflow-hidden flex items-center justify-center gap-4 md:gap-8">
             <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-full opacity-0"></div>
-            <h1 className="hero-line transform translate-y-full opacity-0 text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-white">
+            <h1 className="hero-line transform translate-y-full opacity-0 text-[12vw] md:text-[10vw] leading-[0.85] font-bold font-display uppercase tracking-tighter text-white">
                 Bella
             </h1>
             <div className="hero-line w-[8vw] h-[1vh] bg-cyan-400 transform translate-y-full opacity-0"></div>

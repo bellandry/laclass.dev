@@ -5,6 +5,7 @@ export interface BlogPost {
   author: string;
   date: string;
   tag: string;
+  keywords: string;
   image: string;
   content: string; // The markdown body
 }

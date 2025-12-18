@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 px-6 py-8 mix-blend-difference text-white">
+    <nav className="fixed top-0 w-full z-50 px-6 py-8 text-white">
       <div className="flex justify-between items-center w-full max-w-[1920px] mx-auto">
         
         {/* Logo */}
@@ -98,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
 
         {/* Mobile Overlay */}
         {isOpen && (
-          <div className="fixed inset-0 bg-black backdrop-blur-lg z-40 flex flex-col justify-center items-center">
+          <div className="fixed inset-0 backdrop-blur-lg bg-black/20 z-40 flex flex-col justify-center items-center">
              {currentRoute === 'home' ? links.map((link) => (
                 <Link 
                   key={link.name}
@@ -108,7 +108,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
                     scrollToId(link.name.toLowerCase())
                     toggleMenu()
                   }}
-                  className="mobile-link text-5xl font-display font-bold uppercase mb-8 hover:text-cyan-400 transition-colors"
+                  className="mobile-link text-4xl font-display font-bold uppercase mb-8 hover:text-cyan-400 transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -120,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute = 'home' }) => {
                     scrollToId("home")
                     toggleMenu()
                   }}
-                  className="mobile-link text-5xl font-display font-bold uppercase mb-8 hover:text-cyan-400 transition-colors"
+                  className="mobile-link text-4xl font-display font-bold uppercase mb-8 hover:text-cyan-400 transition-colors"
                 >
                   Back Home
                 </Link>
